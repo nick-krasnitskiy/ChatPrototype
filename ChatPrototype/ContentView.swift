@@ -10,20 +10,23 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack(spacing: 25) {
-            Text("Knock, knock!")
-                .padding()
-                .background(Color.accentColor, in: RoundedRectangle(cornerRadius: 8))
-                .shadow(radius: 50)
-            Text("Who's there?")
-                .padding()
-                .background(Color.orange, in: RoundedRectangle(cornerRadius: 8))
-                .shadow(radius: 10)
-            Text("It's me - Nick")
-                .padding()
-                .background(Color.cyan, in: RoundedRectangle(cornerRadius: 8))
-                .shadow(radius: 70)
+            ChatBubble(name: "Knock, knock!", color: .accentColor)
+            ChatBubble(name: "Who's there?", color: .orange)
+            ChatBubble(name: "It's me - Nick", color: .cyan)
         }
         .padding()
+    }
+}
+
+struct ChatBubble: View {
+    let name: String
+    let color: Color
+    
+    var body: some View {
+        Text(name)
+            .padding()
+            .background(color, in: RoundedRectangle(cornerRadius: 8))
+            .shadow(radius: 50)
     }
 }
 
